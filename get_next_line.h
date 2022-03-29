@@ -16,10 +16,6 @@
 # include <unistd.h>
 # include <stdlib.h>
 
-# ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 42
-# endif
-
 char	*ft_strchr(const char *s, int c);
 int		ft_strlen(const char *c);
 char	*ft_read_str(int fd, char *check);

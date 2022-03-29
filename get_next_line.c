@@ -81,7 +81,7 @@ char	*get_next_line(int fd)
 	static char	*check;
 	char		*return_val;
 
-	if (fd < 0 || BUFFER_SIZE < 1)
+	if (read(fd, 0, 0) < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
 	check = ft_read_str(fd, check);
 	return_val = ft_get_return_val(check);
