@@ -16,17 +16,16 @@
 # include <unistd.h>
 # include <stdlib.h>
 
-#ifndef MAX_FD
-# define MAX_FD 1023
-#endif
+# ifndef MAX_FD
+#  define MAX_FD 1023
+# endif
 
 char	*ft_strchr(const char *s, int c);
 int		ft_strlen(const char *c);
-char	*ft_read_str(int fd, char *check);
-char	*ft_get_return_val(char *check);
-char	*ft_new_check(char *check, char *return_val);
-char	*get_next_line(int fd);
-char	*ft_strjoin(char *s1, char *s2);
 char	*ft_strdup(const char *s1);
+char	*ft_substr(char const *s, unsigned int start, size_t len);
+char	*ft_strjoin(char *s1, char *s2);
+char	*ft_get_return_val(char **check);
+char	*get_next_line(int fd);
 
 #endif

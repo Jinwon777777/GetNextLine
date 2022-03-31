@@ -21,14 +21,19 @@ char	*ft_get_return_val(char **check)
 	i = 0;
 	while (*check[i] && *check[i] != '\n')
 		i++;
-	if (check[i] == '\n')
+	if (*check[i] == '\n')
 	{
 		i++;
-		line = //substr 구현 필
+		line = ft_substr(*check, 0, i);
 		tmp = ft_strdup(*check + i);
 		free(*check);
-		*check = tmp
+		*check = tmp;
+		return (line);
 	}
+	line = ft_strdup(*check);
+	free(*check);
+	*check = NULL;
+	return (line);
 }
 
 char	*get_next_line(int fd)
