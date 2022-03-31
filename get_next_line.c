@@ -6,7 +6,7 @@
 /*   By: jiha <jiha@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/24 10:01:35 by jiha              #+#    #+#             */
-/*   Updated: 2022/03/29 10:52:43 by jiha             ###   ########.fr       */
+/*   Updated: 2022/03/30 16:17:56 by jiha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,8 @@ char	*get_next_line(int fd)
 	if (read(fd, 0, 0) < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
 	check = ft_read_str(fd, check);
+	if (!check)
+		return (NULL);
 	return_val = ft_get_return_val(check);
 	check = ft_new_check(check, return_val);
 	return (return_val);

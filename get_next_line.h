@@ -6,7 +6,7 @@
 /*   By: jiha <jiha@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/24 10:02:05 by jiha              #+#    #+#             */
-/*   Updated: 2022/03/29 10:53:01 by jiha             ###   ########.fr       */
+/*   Updated: 2022/03/30 16:16:52 by jiha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,6 @@ char	*ft_read_str(int fd, char *check);
 char	*ft_get_return_val(char *check);
 char	*ft_new_check(char *check, char *return_val);
 char	*get_next_line(int fd);
-char	*ft_strjoin(char const *s1, char const *s2);
+char	*ft_strjoin(char *s1, char *s2);
 
 #endif

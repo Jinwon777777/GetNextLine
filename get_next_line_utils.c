@@ -6,7 +6,7 @@
 /*   By: jiha <jiha@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/24 10:02:21 by jiha              #+#    #+#             */
-/*   Updated: 2022/03/29 10:41:59 by jiha             ###   ########.fr       */
+/*   Updated: 2022/03/30 16:19:58 by jiha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,14 +34,19 @@ int	ft_strlen(const char *c)
 	return (i);
 }
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char	*ft_strjoin(char *s1, char *s2)
 {
 	char	*arr;
 	int		i;
 	int		j;
 
-	if (!(s1) || !(s2))
+	if (!(s2))
 		return (NULL);
+	if (!(s1))
+	{
+		s1 = (char *)malloc(sizeof(char) * (1));
+		s1[0] = '\0';
+	}
 	arr = (char *)malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
 	if (!(arr))
 		return (NULL);
@@ -52,5 +57,6 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	while (s2[++j])
 		arr[i + j] = s2[j];
 	arr[i + j] = '\0';
+	free(s1);
 	return (arr);
 }
