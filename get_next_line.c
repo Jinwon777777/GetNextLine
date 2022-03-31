@@ -12,27 +12,25 @@
 
 #include "get_next_line.h"
 
-char	*ft_read_str(int fd, char *check)
+char	*ft_read_str(int fd, char **check)
 {
 	int		nbytes;
-	char	*buf;
+	char	buf[BUFFER_SIZE + 1];
 
-	nbytes = 1;
-	buf = (char *)malloc(sizeof(char) * (BUFFER_SIZE + 1));
-	if (!buf)
-		return (NULL);
-	while (nbytes != 0 && (!ft_strchr(check, '\n')))
+	nbytes = read(fd, buf, BUFFER_SIZE);
+	while (nbytes > 0 && (!ft_strchr(check[fd], '\n')))
 	{
-		nbytes = read(fd, buf, BUFFER_SIZE);
+		buf[nbytes] = '\0';
 		if (nbytes == -1)
 		{
 			free(buf);
 			return (NULL);
 		}
-		buf[nbytes] = '\0';
-		check = ft_strjoin(check, buf);
+		if (!check[fd])
+			check[fd] = ft_strdup("");
+		check[fd] = ft_strjoin(check[fd], buf);
+		nbytes = read(fd, buf, BUFFER_SIZE);
 	}
-	free(buf);
 	return (check);
 }
 
@@ -78,7 +76,7 @@ char	*ft_new_check(char *check, char *return_val)
 
 char	*get_next_line(int fd)
 {
-	static char	*check;
+	static char	*check[MAX_FD];
 	char		*return_val;
 
 	if (read(fd, 0, 0) < 0 || BUFFER_SIZE <= 0)

@@ -34,6 +34,24 @@ int	ft_strlen(const char *c)
 	return (i);
 }
 
+char	*ft_strdup(const char *s1)
+{
+	size_t	i;
+	char	*tmp;
+
+	i = 0;
+	tmp = (char *)malloc(sizeof(char) * (strlen(s1) + 1));
+	if (!(tmp))
+		return (NULL);
+	while (s1[i])
+	{
+		s1[i] = tmp[i];
+		i++;
+	}
+	tmp[i] = '\0';
+	return (tmp);
+}
+
 char	*ft_strjoin(char *s1, char *s2)
 {
 	char	*arr;
