@@ -10,6 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <unistd.h>
 #include "get_next_line_bonus.h"
 
 char	*ft_get_return_val(char **check)

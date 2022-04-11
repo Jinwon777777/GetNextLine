@@ -13,7 +13,6 @@
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
 
-# include <unistd.h>
 # include <stdlib.h>
 
 # ifndef MAX_FD
@@ -29,7 +28,6 @@ int		ft_put_line(char **check, int fd);
 char	*get_next_line(int fd);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	*ft_strchr(const char *s, int c);
-int		ft_strlen(const char *c);
 char	*ft_strdup(const char *s1);
 char	*ft_strjoin(char *s1, char *s2);
 

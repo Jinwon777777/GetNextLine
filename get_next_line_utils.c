@@ -24,7 +24,7 @@ char	*ft_strchr(const char *s, int c)
 	return (NULL);
 }
 
-int	ft_strlen(const char *c)
+static int	ft_strlen(const char *c)
 {
 	int	i;
 
