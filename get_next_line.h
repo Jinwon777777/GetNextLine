@@ -17,7 +17,7 @@
 # include <stdlib.h>
 
 # ifndef MAX_FD
-#  define MAX_FD 1023
+#  define MAX_FD 255
 # endif
 
 # ifndef BUFFER_SIZE
@@ -25,7 +25,7 @@
 # endif
 
 char	*ft_get_return_val(char **check);
-int		ft_put_line(char **check, int fd, char *buf);
+int		ft_put_line(char **check, int fd);
 char	*get_next_line(int fd);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	*ft_strchr(const char *s, int c);

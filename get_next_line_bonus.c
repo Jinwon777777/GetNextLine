@@ -40,10 +40,11 @@ char	*ft_get_return_val(char **check)
 	return (line);
 }
 
-int	ft_put_line(char **check, int fd, char *buf)
+int	ft_put_line(char **check, int fd)
 {
 	char	*tmp;
 	int		nbytes;
+	char	buf[BUFFER_SIZE + 1];
 
 	nbytes = read(fd, buf, BUFFER_SIZE);
 	while (nbytes > 0)
@@ -66,12 +67,11 @@ char	*get_next_line(int fd)
 	static char	*check[MAX_FD];
 	char		*return_val;
 	int			nbytes;
-	char		buf[BUFFER_SIZE + 1];
 
-	if (read(fd, buf, 0) < 0 || BUFFER_SIZE <= 0)
+	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
-	nbytes = ft_put_line(check, fd, buf);
-	if ((nbytes < 0) || ((!nbytes) && (!check[fd] || !*check[fd])))
+	nbytes = ft_put_line(check, fd);
+	if ((nbytes < 0) || ((nbytes == 0) && (!check[fd] || !*check[fd])))
 		return (NULL);
 	return_val = ft_get_return_val(&check[fd]);
 	return (return_val);
